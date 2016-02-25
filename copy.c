@@ -11,7 +11,7 @@
 #include <stdlib.h>
 
 int main(int argc, char* argv[]) {
-    const int BUFFER_SIZE = 32; // default buffer size
+    const int BUFFER_SIZE = 1; // default buffer size
     char* inputFileName;
     char* outputFileName;
 
@@ -41,8 +41,6 @@ int main(int argc, char* argv[]) {
         (*buffer < 0xa)?   printf("0%0X ", *buffer) :
                            printf("%0X " , *buffer);
     }
-    printf("%c", '\n');
-
 
     fclose(inputFile);
     fclose(outputFile);
