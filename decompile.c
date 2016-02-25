@@ -38,8 +38,8 @@ int main(int argc, char* argv[]) {
     unsigned char buffer[BUFFER_SIZE];
     while ( fread(buffer, sizeof(buffer), 1, inputFile) ) {
         fwrite(buffer, sizeof(buffer), 1, outputFile);
-        (*buffer <= 0xF)?   printf("0%0X ", *buffer) :
-                           printf("%0X " , *buffer);
+        (*buffer <= 0xF)? printf("0%0X ", *buffer) :
+                          printf("%0X " , *buffer);
     }
 
     fclose(inputFile);
