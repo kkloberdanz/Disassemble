@@ -11,7 +11,7 @@
 #include <stdlib.h>
 
 int main(int argc, char* argv[]) {
-    const int BUFFER_SIZE = 64; // default buffer size
+    const int BUFFER_SIZE = 2; // default buffer size
     char* inputFileName;
     char* outputFileName;
 
@@ -35,14 +35,18 @@ int main(int argc, char* argv[]) {
     }
     outputFile = fopen(outputFileName, "wb");
 
+    int i;
     unsigned char buffer[BUFFER_SIZE];
     while ( fread(buffer, sizeof(buffer), 1, inputFile) ) {
         fwrite(buffer, sizeof(buffer), 1, outputFile);
+
+        /*printf("\n Size of buffer: %lu\n", sizeof(buffer) );*/
 
         for (i = 0; i < BUFFER_SIZE; i++) {
             (buffer[i] <= 0xF)? printf("0%0X ", buffer[i]) :
                                 printf("%0X " , buffer[i]);
         }
+        puts("");
     }
 
     fclose(inputFile);
